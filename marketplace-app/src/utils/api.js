@@ -15,3 +15,9 @@ export const getItems = () => {
     return res.data.items;
   });
 };
+
+export const getItem = (item_id) => {
+  return marketplaceApi.get(`/items/${item_id}`).then((res) => {
+    return res.data.item;
+  });
+};
