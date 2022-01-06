@@ -15,7 +15,10 @@ const ItemsList = () => {
       <h1>Items</h1>
       <ul>
         {items.map((item) => {
-          return <li key={item.item_id}>{item.item_name}</li>;
+          return <li key={item.item_id}>
+              <img src={item.img_url}/>
+              <p>{item.item_name}</p>
+              </li>;
         })}
       </ul>
     </main>
