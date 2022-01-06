@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getItems } from "../utils/api";
+import { Link } from "react-router-dom";
 
 const ItemsList = () => {
   const [items, setItems] = useState([]);
@@ -15,10 +16,14 @@ const ItemsList = () => {
       <h1>Items</h1>
       <ul>
         {items.map((item) => {
-          return <li key={item.item_id}>
-              <img src={item.img_url}/>
+          return (
+            <li key={item.item_id}>
+              <Link to={`/items/${item.item_id}`}>
+                <img src={item.img_url} />
+              </Link>
               <p>{item.item_name}</p>
-              </li>;
+            </li>
+          );
         })}
       </ul>
     </main>
