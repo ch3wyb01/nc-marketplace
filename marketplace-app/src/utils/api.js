@@ -9,3 +9,9 @@ export const getCategories = () => {
     return res.data.categories;
   });
 };
+
+export const getItems = () => {
+  return marketplaceApi.get("/items").then((res) => {
+    return res.data.items;
+  });
+};
