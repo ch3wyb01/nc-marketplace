@@ -19,7 +19,7 @@ const ItemsList = () => {
           return (
             <li key={item.item_id}>
               <Link to={`/items/${item.item_id}`}>
-                <img src={item.img_url} />
+                <img src={item.img_url} alt={`image of ${item.item_name}`} />
               </Link>
               <p>{item.item_name}</p>
             </li>
