@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getItems } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const ItemsList = ({items, setItems}) => {
-
+const ItemsList = ({ items, setItems }) => {
   useEffect(() => {
     getItems().then((itemsFromApi) => {
       setItems(itemsFromApi);
