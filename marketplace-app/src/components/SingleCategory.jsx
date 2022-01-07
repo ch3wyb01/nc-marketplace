@@ -1,16 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getItems } from "../utils/api";
+import { getItemsByCategory } from "../utils/api";
 
-const SingleCategory = ({ items, setItems }) => {
+const SingleCategory = () => {
   const { category_name } = useParams();
+  const [categoryItems, setCategoryItems] = useState([]);
 
   useEffect(() => {
-    getItems().then((itemsFromApi) => {
-      const categoryItems = itemsFromApi.filter((item) => {
-        return item.category_name === category_name;
-      });
-      setItems(categoryItems);
+    getItemsByCategory(category_name).then((itemsFromApi) => {
+      setCategoryItems(itemsFromApi);
     });
   }, []);
 
@@ -18,7 +16,7 @@ const SingleCategory = ({ items, setItems }) => {
     <main>
       <h1>{category_name}</h1>
       <ul>
-        {items.map((item) => {
+        {categoryItems.map((item) => {
           return (
             <li key={item.item_id}>
               <p>{item.item_name}</p>
