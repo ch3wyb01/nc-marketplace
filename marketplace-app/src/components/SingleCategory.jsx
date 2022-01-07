@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getItems } from "../utils/api";
 
-const SingleCategory = ({items, setItems}) => {
+const SingleCategory = ({ items, setItems }) => {
   const { category_name } = useParams();
 
   useEffect(() => {
     getItems().then((itemsFromApi) => {
       const categoryItems = itemsFromApi.filter((item) => {
         return item.category_name === category_name;
-    });
-    setItems(categoryItems);
+      });
+      setItems(categoryItems);
     });
   }, []);
 
@@ -24,7 +24,7 @@ const SingleCategory = ({items, setItems}) => {
               <p>{item.item_name}</p>
               <p>{`£${item.price}`}</p>
               <Link to={`/items/${item.item_id}`}>
-                <img src={item.img_url} alt={`image of ${item.item_name}`} />
+                <img src={item.img_url} alt={item.item_name} />
               </Link>
             </li>
           );

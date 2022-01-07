@@ -16,7 +16,7 @@ const SingleItem = () => {
     <main>
       <h1>{item.item_name}</h1>
       <p>{`£${item.price}`}</p>
-      <img src={item.img_url} alt={`image of ${item.item_name}`} />
+      <img src={item.img_url} alt={item.item_name} />
       <p>{item.description}</p>
     </main>
   );
