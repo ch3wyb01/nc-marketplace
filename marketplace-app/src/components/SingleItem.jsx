@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getItem } from "../utils/api";
+import { getSingleItem } from "../utils/api";
 
 const SingleItem = () => {
   const { item_id } = useParams();
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    getItem(item_id).then((itemFromApi) => {
+    getSingleItem(item_id).then((itemFromApi) => {
       setItem(itemFromApi);
     });
   }, []);

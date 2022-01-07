@@ -22,7 +22,7 @@ export const getItemsByCategory = (category) => {
   });
 };
 
-export const getItem = (item_id) => {
+export const getSingleItem = (item_id) => {
   return marketplaceApi.get(`/items/${item_id}`).then((res) => {
     return res.data.item;
   });
