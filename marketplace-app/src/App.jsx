@@ -9,6 +9,7 @@ import SingleItem from "./components/SingleItem";
 import SingleCategory from "./components/SingleCategory";
 import SellItem from "./components/SellItem";
 import Basket from "./components/Basket";
+import UsersList from "./components/UsersList";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -24,7 +25,7 @@ function App() {
           <Route path="/categories" element={<CategoriesList />}></Route>
           <Route
             path="/items"
-            element={<ItemsList items={items} setItems={setItems} />}
+            element={<ItemsList items={items} setItems={setItems} setBasketItems={setBasketItems}/>}
           ></Route>
           <Route path="/items/:item_id" element={<SingleItem />}></Route>
           <Route
@@ -36,6 +37,7 @@ function App() {
             element={<SellItem items={items} setItems={setItems} />}
           ></Route>
           <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>}></Route>
+          <Route path='/users' element={<UsersList />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
