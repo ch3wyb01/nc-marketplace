@@ -41,3 +41,9 @@ export const postItem = (
       return res.data.item;
     });
 };
+
+export const getUsers = () => {
+  return marketplaceApi.get("/users").then((res) => {
+    return res.data.users;
+  });
+};
