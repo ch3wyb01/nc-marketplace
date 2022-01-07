@@ -24,10 +24,9 @@ function App() {
             element={<ItemsList items={items} setItems={setItems} />}
           ></Route>
           <Route path="/items/:item_id" element={<SingleItem />}></Route>
-          <Route path="/items/:item_id" element={<SingleItem />}></Route>
           <Route
             path="/categories/:category_name"
-            element={<SingleCategory items={items} setItems={setItems} />}
+            element={<SingleCategory />}
           ></Route>
           <Route
             path="/items/sell"
