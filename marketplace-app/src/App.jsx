@@ -8,9 +8,12 @@ import ItemsList from "./components/ItemsList";
 import SingleItem from "./components/SingleItem";
 import SingleCategory from "./components/SingleCategory";
 import SellItem from "./components/SellItem";
+import Basket from "./components/Basket";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [basketItems, setBasketItems] = useState([{item_name : 'bogies'}]);
+
 
   return (
     <BrowserRouter>
@@ -32,6 +35,7 @@ function App() {
             path="/items/sell"
             element={<SellItem items={items} setItems={setItems} />}
           ></Route>
+          <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
