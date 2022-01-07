@@ -28,6 +28,16 @@ export const getItem = (item_id) => {
   });
 };
 
-// export const postItem = (item_name, img_url, price, description, category_name) => {
-//   return marketplaceApi.post('/items', {item_name, img_url, price, description, category_name})
-// }
+export const postItem = (
+  item_name,
+  img_url,
+  price,
+  description,
+  category_name
+) => {
+  return marketplaceApi
+    .post("/items", { item_name, img_url, price, description, category_name })
+    .then((res) => {
+      return res.data.item;
+    });
+};
