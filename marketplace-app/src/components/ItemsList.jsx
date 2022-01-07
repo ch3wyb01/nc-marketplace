@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { getItems } from "../utils/api";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ItemsList = ({ items, setItems }) => {
   useEffect(() => {
@@ -9,9 +10,18 @@ const ItemsList = ({ items, setItems }) => {
     });
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <main>
       <h1>Items</h1>
+      <button
+            onClick={() => {
+              navigate("/items/sell");
+            }}
+          >
+            List an item for sale
+          </button>
       <ul>
         {items.map((item) => {
           return (
