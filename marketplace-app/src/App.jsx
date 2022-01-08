@@ -20,6 +20,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
+        <div className="px-3 py-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/categories" element={<CategoriesList />}></Route>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>}></Route>
           <Route path='/users' element={<UsersList />}></Route>
         </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
