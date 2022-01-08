@@ -13,7 +13,15 @@ const ItemCard = ({ id, name, price, image_url, description }) => {
   return (
     <MDBCard style={{ maxWidth: "22rem" }}>
       <Link to={`/items/${id}`}>
-        <MDBCardImage src={image_url} position="top" alt={name} />
+        <MDBCardImage
+          onError={(event) =>
+            (event.target.src =
+              "https://designshack.net/wp-content/uploads/placeholder-image-368x246.png")
+          }
+          src={image_url}
+          position="top"
+          alt={name}
+        />
       </Link>
       <MDBCardBody>
         <Link to={`/items/${id}`}>
