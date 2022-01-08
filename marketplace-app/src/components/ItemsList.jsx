@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { MDBSpinner, MDBBtn } from "mdb-react-ui-kit";
+import ItemCard from "./ItemCard";
 
 const ItemsList = ({ items, setItems }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,22 +33,18 @@ const ItemsList = ({ items, setItems }) => {
           >
             List an item for sale
           </MDBBtn>
-          <ul>
-            {items.map((item) => {
-              return (
-                <li key={item.item_id}>
-                  <p>{item.item_name}</p>
-                  <p>{`£${item.price}`}</p>
-                  <Link to={`/items/${item.item_id}`}>
-                    <img
-                      src={item.img_url}
-                      alt={item.item_name}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div>
+            {items.map((item) => (
+              <ItemCard
+                key={item.item_id}
+                id={item.item_id}
+                name={item.item_name}
+                price={item.price}
+                image_url={item.img_url}
+                description={item.description}
+              />
+            ))}
+          </div>
         </>
       )}
     </main>
