@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { getItems } from "../utils/api";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { MDBSpinner, MDBBtn } from "mdb-react-ui-kit";
@@ -10,7 +9,7 @@ const ItemsList = ({ items, setItems }) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getItems().then((itemsFromApi) => {
-      setItems(itemsFromApi);
+      setItems(itemsFromApi.filter((item) => item.item_name !== "Test"));
       setIsLoading(false);
     });
   }, []);
