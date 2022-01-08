@@ -3,7 +3,7 @@ import { getItems } from "../utils/api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { MDBSpinner } from "mdb-react-ui-kit";
+import { MDBSpinner, MDBBtn } from "mdb-react-ui-kit";
 
 const ItemsList = ({ items, setItems }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,13 +25,13 @@ const ItemsList = ({ items, setItems }) => {
         </MDBSpinner>
       ) : (
         <>
-          <button
+          <MDBBtn
             onClick={() => {
               navigate("/items/sell");
             }}
           >
             List an item for sale
-          </button>
+          </MDBBtn>
           <ul>
             {items.map((item) => {
               return (
@@ -41,7 +41,7 @@ const ItemsList = ({ items, setItems }) => {
                   <Link to={`/items/${item.item_id}`}>
                     <img
                       src={item.img_url}
-                      alt={`image of ${item.item_name}`}
+                      alt={item.item_name}
                     />
                   </Link>
                 </li>
