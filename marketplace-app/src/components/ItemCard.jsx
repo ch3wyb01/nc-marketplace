@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const ItemCard = ({ id, name, price, image_url, description }) => {
   return (
-    <MDBCard style={{ maxWidth: "22rem" }}>
+    <MDBCard className="shadow my-4 mx-auto" style={{ maxWidth: "22rem" }}>
       <Link to={`/items/${id}`}>
         <MDBCardImage
           onError={(event) =>
@@ -24,13 +24,13 @@ const ItemCard = ({ id, name, price, image_url, description }) => {
         />
       </Link>
       <MDBCardBody>
-        <Link to={`/items/${id}`}>
-          <MDBCardTitle>{name}</MDBCardTitle>
-          <MDBCardSubTitle>£{price}</MDBCardSubTitle>
-          <MDBCardText>{description}</MDBCardText>
-        </Link>
-        <MDBBtn href="/basket">Add to basket</MDBBtn>
-        <MDBBtn href="#">Order now</MDBBtn>
+        <MDBCardTitle tag='h4'>{name}</MDBCardTitle>
+        <MDBCardSubTitle tag='h6' className="text-muted">£{price}</MDBCardSubTitle>
+        <MDBCardText className="py-2">{description}</MDBCardText>
+        <div className="d-flex justify-content-around">
+          <MDBBtn href="/basket">Add to basket</MDBBtn>
+          <MDBBtn href="#">Order now</MDBBtn>
+        </div>
       </MDBCardBody>
     </MDBCard>
   );
