@@ -7,7 +7,7 @@ Northcoders are creating an online marketplace where we can find new homes for a
 - `cd` into the directory where you would like the app to be stored
 - clone the repo by using the command `git clone https://github.com/ch3wyb01/marketplace.git` in your terminal.
 - `cd` into the newly created directory and then `cd` into the marketplace-app directory \
-    e.g. `cd marketplace/marketplace-app`
+    i.e. `cd marketplace/marketplace-app`
 
 #### *Once in the project directory:*
 
